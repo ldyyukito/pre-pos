@@ -1,12 +1,19 @@
+function count_same_elements(collection) {             //注意：主程序要写在最前面，这样好看
+  var result = [];
+  for (var x = 0; x < collection.length; x++) {
+    FindSameItem(collection[x], result);
+  }
+  return result;
+}
 function FindSameItem(item, array) {
   for (var y = 0; y < array.length; y++) {
-    var time = JudgeNum(item);
-    if (item === array[y].key) {
-      array[y].count += time;
+    var times = JudgeNum(item);               //注意：参看重构48页说：临时变量times在使用前已经有初值，可以直接用函数的返回值雷家，所以不用定义TIMES是可以的，但我还是不知道加好还是不嫁好。。
+    if (item.charAt(0) === array[y].name) {
+      array[y].summary += times;
       return;
     }
   }
-  array.push({key: item, count: 1});
+  array.push({name : item.charAt(0), summary : JudgeNum(item)});
 }
 
 function JudgeNum(item) {
@@ -31,14 +38,5 @@ function process(collection) {
       break;
     }
   }
-  return parseInt(collection.substr(2, 2));
-}
-
-
-function count_same_elements(collection) {
-  var result = [];
-  for (var x = 0; x < collection.length; x++) {
-    FindSameItem(collection[x], result);
-  }
-  return result;
+  return parseInt(collection.substr(2, sum - 1));
 }

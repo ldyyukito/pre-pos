@@ -4,7 +4,7 @@ var FindSameItem = function (itemA, collection_b) {
       return collection_b[0][x];
   }
   return undefined;
-};
+}
 
 function collect_same_elements(collection_a, collection_b) {
   var array = [];

@@ -6,7 +6,8 @@ function create_updated_collection(collection_a, object_b) {
 
 function FindSameItem(item, object_b) {
   for (var y = 0; y < object_b.value.length; y++) {
-    if (item.key === object_b.value[y]) {
+    if (item.key === object_b.value[y])
+    {
       item.count--;
       return;
     }

@@ -1,6 +1,63 @@
-function FindSameItem(item, array) {
-  for (var y = 0; y < array.length; y++)     //下次做题应理清函数间调用的关系，李亚学姐：但是函数里放的是result，而不是collection，所以不需要减
-  {
+function create_updated_collection(collection_a, object_b) {
+  var collection_c = count_same_elements(collection_a)
+  for (var i in collection_c) {
+    if (object_b.value.indexOf(collection_c[i].key) !== -1) {
+      collection_c[i].count -= parseInt(collection_c[i].count / 3);
+      }
+  }
+return collection_c;
+}
+//spilt作用是把一个字符串分割成字符数组，所给的参数是指定分割点
+function count_same_elements(collection) {
+  var objResult = {};
+  var result = [];
+  collection.map(function(val) {
+    return {
+      key: val.split("-")[0],
+       count: parseInt(val.split("-")[1] || 1) //牢记，并左边如果为真，就不用再看右面了
+    }
+  }).forEach(function(val) {
+      objResult[val.key] = objResult[val.key] || 0; // objResult[key] || 0 意思是 objResult[key] ? objResult[key] : 0;
+      objResult[val.key] += val.count;
+  })
+  for (var i in objResult) {
+   result.push({
+   key: i,
+   count: objResult[i]
+   });
+}
+  return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function FindSameItem(item, array) {
+  for (var y = 0; y < array.length; y++)
     if (item === array[y].key) {
       array[y].count++;
       return;
@@ -19,6 +76,24 @@ function count_same_elements(collection) {
   });
   return result;
 }
+
+
+/*
+var  strObjcollection.map(val){
+{key:val.spilt["_"][0],
+ count:val.spilt("_")[1] ? 1 //      count:val.spilt("_")[1] ? val.spilt("_")  [1] ||1;
+
+
+
+
+
+for(var i in objResult){
+result.push({
+key: i,
+count: objResult[i]
+})
+}
+
 function create_updated_collection(collection_a, object_b) {
   var collection_c = count_same_elements(collection_a);
   for (var i = 0; i < collection_c.length; i++)
@@ -34,3 +109,4 @@ function FindItem(item, object_b)       //一定要改名！js同名函数调用
     }
   }
 }
+*/

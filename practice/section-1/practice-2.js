@@ -1,4 +1,11 @@
-var FindSameItem = function (itemA, collection_b) {
+function collect_same_elements(collection_a, collection_b) {
+return collection_a.filter(function(val) {
+return (collection_b[0].indexOf(val) !== -1);
+})
+}
+
+
+/*var FindSameItem = function (itemA, collection_b) {
   for (var x = 0; x < collection_b[0].length; x++) {
     if (collection_b[0][x] === itemA)
       return collection_b[0][x];
@@ -15,4 +22,4 @@ function collect_same_elements(collection_a, collection_b) {
     }
   }
   return array;
-}
+}*/

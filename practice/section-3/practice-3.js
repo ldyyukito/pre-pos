@@ -1,4 +1,45 @@
 function create_updated_collection(collection_a, object_b) {
+  var collection_c = count_same_elements(collection_a)
+  for (var i in collection_c) {
+    if (object_b.value.indexOf(collection_c[i].key) !== -1) {
+      collection_c[i].count -= parseInt(collection_c[i].count / 3);
+      }
+  }
+return collection_c;
+}
+
+function findSameItem(item, array) {
+  for (var y in array) {
+    if (item === array[y].key) {
+      array[y].count++;
+      return;
+    }
+  }
+  array.push({key: item, count: 1});
+}
+
+function count_same_elements(collection) {
+  var result = [];
+  for (var x in collection) {
+    findSameItem(collection[x], result);
+  }
+  return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function create_updated_collection(collection_a, object_b) {
   var collection_c = count_same_elements(collection_a);      //不要这个数组C是可以的，但是写上这个是不是比较好呀？如果不是的话，我以后就不写它了。
   for (var i = 0; i < collection_c.length; i++)
     FindItem(collection_c[i], object_b);
@@ -35,3 +76,4 @@ function FindItem(item, object_b){      //一定要改名！js同名函数调用
     }
   }
 }
+*/

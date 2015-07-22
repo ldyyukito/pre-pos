@@ -12,8 +12,7 @@ function count_same_elements(collection) {
   var objResult = {};
   var result = [];
   collection.map(function(val) {
-    return {
-      key: val.split("-")[0],
+    return {  key: val.split("-")[0],
        count: parseInt(val.split("-")[1] || 1) //牢记，并左边如果为真，就不用再看右面了
     }
   }).forEach(function(val) {

@@ -1,3 +1,61 @@
+function count_same_elements(collection) {
+  var objResult = {};
+  var result = [];
+  collection.forEach(function(val){
+    objResult[val] =  (objResult[val]+1) || 1;
+    })
+    for (var i in objResult) {
+      result.push({key: i, count: objResult[i]});
+    }
+    return result;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function findSameItem(item, array) {
+  for (var y in array) {
+    if (item === array[y].key) {
+      array[y].count++;
+      return;
+    }
+  }
+  array.push({key: item, count: 1});
+}
+
+function count_same_elements(collection) {
+  var result = [];
+  for (var x in collection) {
+    findSameItem(collection[x], result);
+  }
+  return result;
+}*/
+
+
+
+
+
+
+
+
+
+
+
 /*function FindSameItem(item, array) {
   for (var y = 0; y < array.length; y++) {
     if (item === array[y].key) {
@@ -15,27 +73,6 @@ function count_same_elements(collection) {
   return result;
 }
 */
-function findSameItem(item, array) {
-  for (var y in array) {
-    if (item === array[y].key) {
-      array[y].count++;
-      return;
-    }
-  }
-  array.push({key: item, count: 1});
-}
-
-function count_same_elements(collection) {
-  var result = [];
-  for (var x in collection) {
-    findSameItem(collection[x], result);
-  }
-  return result;
-}
-
-
-
-
 
 /*function count_same_elements(collection) {
 var result = [];

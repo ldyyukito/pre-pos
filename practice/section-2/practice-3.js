@@ -43,14 +43,23 @@ function count_same_elements(collection) {
     objResult[val.key] = objResult[val.key] || 0;
     objResult[val.key] += val.count;
   })
-  for (var i in objResult) {
-    result.push({
-      name: i,
-      summary: objResult[i]
-    });
-  }
-  return result;
+ result  = Result(objResult,result);
+ return result;
 }
+
+function Result(object,array) {
+for (var i in object) {
+      array.push({
+     name: i,
+     summary: object[i]
+   });
+ }
+ return array;
+}
+
+
+
+
 
 
 
